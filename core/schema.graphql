@@ -8,6 +8,7 @@ type Contract @entity {
 type Constant @entity {
   id: ID! # name (key)
   value: Bytes!
+  type: String!
 }
 
 ############################### RBAC ###############################
