@@ -20,10 +20,18 @@ dataSources:
         - name: ConstantsRegistry
           file: ./abis/ConstantsRegistry.json
       eventHandlers:
-        - event: AddedConstant(string,bytes)
-          handler: onAddedConstant
-        - event: RemovedConstant(string)
-          handler: onRemovedConstant
+        - event: AddedBytes(string,bytes)
+          handler: onAddedBytes
+        - event: AddedString(string,bytes)
+          handler: onAddedString
+        - event: AddedUint256(string,bytes)
+          handler: onAddedUint256
+        - event: AddedAddress(string,bytes)
+          handler: onAddedAddress
+        - event: AddedBytes32(string,bytes)
+          handler: onAddedBytes32
+        - event: Removed(string)
+          handler: onRemoved
   - kind: ethereum/contract
     name: MasterContractsRegistry
     network: mainnet
