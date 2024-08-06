@@ -18,9 +18,12 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   REGISTRY: registry.gitlab.com/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME
   IMAGE_NAME: $REGISTRY:$CI_COMMIT_SHA
-  IMAGE_NAME_TAG: $REGISTRY:$CI_COMMIT_TAG
-  CONTAINER_RELEASE_IMAGE: $IMAGE_DOCKER:$CI_COMMIT_SHA
+  CONTAINER_RELEASE_IMAGE: $IMAGE_DOCKER:$CI_COMMIT_TAG
 
+.before_script_template_gitlab: &before_script_templ_gitlab
+  before_script:
+    - docker version
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
 
 .before_script_template: &before_script_templ
   before_script:
@@ -34,10 +37,25 @@ Build And Publish:
   stage: build
   only:
     - branches
+  <<: *before_script_templ_gitlab
+  script:
+    - cd core
+    - docker build --pull -t "$IMAGE_NAME" -f docker/Dockerfile .
+    - docker push "$IMAGE_NAME"
+  except: [schedules]
+  interruptible: true
+
+Build And Publish Tag:
+  stage: build
+  only:
+    - tags
+  except:
+    - branches
   <<: *before_script_templ
   script:
     - cd core
-    - docker build -t "$CONTAINER_RELEASE_IMAGE" -f docker/Dockerfile .
+    - docker build --pull -t "$CONTAINER_RELEASE_IMAGE" -f docker/Dockerfile .
     - docker push "$CONTAINER_RELEASE_IMAGE"
   except: [schedules]
   interruptible: true
+
