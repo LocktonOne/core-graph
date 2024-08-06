@@ -5,7 +5,7 @@ import { SolidityTypes } from "../global/SolidityTypes";
 export function getConstant(
   id: string,
   value: Bytes = Bytes.empty(),
-  type: SolidityTypes = SolidityTypes.BYTES
+  type: SolidityTypes = SolidityTypes.BYTES,
 ): Constant {
   let entity = Constant.load(id);
 

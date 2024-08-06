@@ -23,7 +23,7 @@ export function onRequestCreated(event: RequestCreated): void {
     params.description,
     getEnumBigInt(RequestStatus.PENDING),
     event.block.timestamp,
-    requestThread.id
+    requestThread.id,
   );
 
   request.save();
@@ -43,7 +43,7 @@ export function onRequestUpdated(event: RequestUpdated): void {
     params.description,
     getEnumBigInt(RequestStatus.PENDING),
     event.block.timestamp,
-    request.thread
+    request.thread,
   ).save();
 
   request.status = getEnumBigInt(RequestStatus.DROPPED);

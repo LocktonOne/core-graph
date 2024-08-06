@@ -16,7 +16,7 @@ export function getBlock(number: BigInt, timestamp: BigInt): ethereum.Block {
     BigInt.zero(),
     BigInt.zero(),
     BigInt.zero(),
-    BigInt.zero()
+    BigInt.zero(),
   );
 }
 
@@ -30,7 +30,7 @@ export function getTransaction(hash: Bytes): ethereum.Transaction {
     BigInt.zero(),
     BigInt.zero(),
     Bytes.empty(),
-    BigInt.zero()
+    BigInt.zero(),
   );
 }
 
@@ -50,7 +50,7 @@ export function getNextBlock(prevBlock: ethereum.Block): ethereum.Block {
     prevBlock.difficulty,
     prevBlock.totalDifficulty,
     prevBlock.size,
-    prevBlock.baseFeePerGas
+    prevBlock.baseFeePerGas,
   );
 }
 
@@ -64,7 +64,7 @@ export function getNextTx(prevTx: ethereum.Transaction): ethereum.Transaction {
     prevTx.gasLimit,
     prevTx.gasPrice,
     prevTx.input,
-    prevTx.nonce.plus(BigInt.fromI32(1))
+    prevTx.nonce.plus(BigInt.fromI32(1)),
   );
 }
 

@@ -14,7 +14,7 @@ function createAddedContractEvent(
   address: Address,
   isProxy: boolean,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): AddedContract {
   let event = changetype<AddedContract>(newMockEvent());
 
@@ -44,7 +44,7 @@ function createRemovedContractEvent(name: string, block: ethereum.Block, tx: eth
 function createInitialized(
   masterContractsRegistry: Address,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): Initialized {
   let event = changetype<Initialized>(newMockEvent());
 

@@ -11,7 +11,7 @@ export function getRequest(
   description: string = "",
   status: BigInt = BigInt.zero(),
   timestamp: BigInt = BigInt.zero(),
-  thread: string = ""
+  thread: string = "",
 ): Request {
   const id = requestId.toString();
   let entity = Request.load(id);

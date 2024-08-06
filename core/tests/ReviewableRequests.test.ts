@@ -25,7 +25,7 @@ function createRequestCreatedEvent(
   misc: string,
   description: string,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): RequestCreated {
   let event = changetype<RequestCreated>(newMockEvent());
 
@@ -53,7 +53,7 @@ function createRequestUpdatedEvent(
   misc: string,
   description: string,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): RequestUpdated {
   let event = changetype<RequestUpdated>(newMockEvent());
 
@@ -74,7 +74,7 @@ function createRequestUpdatedEvent(
 function createRequestAcceptedEvent(
   requestId: BigInt,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): RequestAccepted {
   let event = changetype<RequestAccepted>(newMockEvent());
 
@@ -91,7 +91,7 @@ function createRequestRejectedEvent(
   requestId: BigInt,
   reason: string,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): RequestRejected {
   let event = changetype<RequestRejected>(newMockEvent());
 
@@ -140,7 +140,7 @@ describe("ReviewableRequests", () => {
       misc,
       description,
       block,
-      tx
+      tx,
     );
 
     onRequestCreated(event);
@@ -161,7 +161,7 @@ describe("ReviewableRequests", () => {
       misc,
       description,
       block,
-      tx
+      tx,
     );
 
     onRequestUpdated(event);
@@ -215,7 +215,7 @@ function assertRequest(
   misc: string,
   description: string,
   status: BigInt,
-  rejectReason: string
+  rejectReason: string,
 ): void {
   const id = requestId.toString();
 

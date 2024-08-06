@@ -23,7 +23,7 @@ function createAddedEvent<T extends ethereum.Event>(
   name: string,
   value: Bytes,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): T {
   let event = changetype<T>(newMockEvent());
 

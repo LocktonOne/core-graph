@@ -52,15 +52,15 @@ async function getConfig() {
 
   pkg.scripts["create"] = pkg.scripts["create"].replace(
     "<core-graph>",
-    config.projectName
+    config.projectName,
   );
   pkg.scripts["deploy"] = pkg.scripts["deploy"].replace(
     "<core-graph>",
-    config.projectName
+    config.projectName,
   );
   pkg.scripts["remove"] = pkg.scripts["remove"].replace(
     "<core-graph>",
-    config.projectName
+    config.projectName,
   );
 
   fs.writeFileSync("./package.json", JSON.stringify(pkg));

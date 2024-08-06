@@ -14,7 +14,7 @@
     "lint-js-fix": "prettier --write \"./**/*.js\""
   },
   "dependencies": {
-    "husky": "^7.0.2",
-    "prettier": "^2.4.0"
+    "husky": "^9.1.4 ",
+    "prettier": "^3.3.3"
   }
 }

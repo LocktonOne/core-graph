@@ -22,7 +22,7 @@ function createGrantedRolesEvent(
   to: Address,
   rolesToGrant: Array<string>,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): GrantedRoles {
   let event = changetype<GrantedRoles>(newMockEvent());
 
@@ -40,7 +40,7 @@ function createRevokedRolesEvent(
   from: Address,
   rolesToRevoke: Array<string>,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): RevokedRoles {
   let event = changetype<RevokedRoles>(newMockEvent());
 
@@ -60,7 +60,7 @@ function createAddedPermissionsEvent(
   permissionsToAdd: Array<string>,
   allowed: boolean,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): AddedPermissions {
   let event = changetype<AddedPermissions>(newMockEvent());
 
@@ -82,7 +82,7 @@ function createRemovedPermissionsEvent(
   permissionsToRemove: Array<string>,
   allowed: boolean,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): RemovedPermissions {
   let event = changetype<RemovedPermissions>(newMockEvent());
 
@@ -90,7 +90,7 @@ function createRemovedPermissionsEvent(
   event.parameters.push(new ethereum.EventParam("role", ethereum.Value.fromString(role)));
   event.parameters.push(new ethereum.EventParam("resource", ethereum.Value.fromString(resource)));
   event.parameters.push(
-    new ethereum.EventParam("permissionsToRemove", ethereum.Value.fromStringArray(permissionsToRemove))
+    new ethereum.EventParam("permissionsToRemove", ethereum.Value.fromStringArray(permissionsToRemove)),
   );
   event.parameters.push(new ethereum.EventParam("allowed", ethereum.Value.fromBoolean(allowed)));
 
@@ -104,7 +104,7 @@ function createAddedRoleWithDescriptionEvent(
   role: string,
   description: string,
   block: ethereum.Block,
-  tx: ethereum.Transaction
+  tx: ethereum.Transaction,
 ): AddedRoleWithDescription {
   let event = changetype<AddedRoleWithDescription>(newMockEvent());
 
