@@ -1,10 +1,9 @@
 FROM node:16-alpine
-RUN apk add --no-cache make gcc g++ python3
+RUN apk add --no-cache make gcc g++ python3 git openssh
 
 WORKDIR /tokene-graph
 
-COPY docker/package.json ./
-COPY docker/package-lock.json ./
+COPY docker/package*.json ./
 
 COPY abis ./abis
 COPY src ./src
