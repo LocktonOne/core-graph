@@ -1,0 +1,52 @@
+type AddedAddress @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  value: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AddedBytes @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  value: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AddedBytes32 @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  value: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AddedString @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  value: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AddedUint256 @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  value: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Removed @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
