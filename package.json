@@ -14,7 +14,9 @@
     "lint-js-fix": "prettier --write \"./**/*.js\""
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "husky": "^9.1.4 ",
+    "node-vault": "^0.10.2",
     "prettier": "^3.3.3"
   }
 }

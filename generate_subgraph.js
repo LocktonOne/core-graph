@@ -5,7 +5,7 @@ const fs = require("fs");
 dotenv.config();
 
 const SUBGRAPH_NAME = process.env.SUBGRAPH_NAME || "core-subgraph";
-const DIRECTORY = process.env.SUBGRAPH_DIR || "./subgraph.yaml";
+const DIRECTORY = process.env.SUBGRAPH_DIR || "./subgraph";
 const NETWORK = process.env.NETWORK || "mainnet";
 
 async function initSubgraph(contractAddress, contractName) {
