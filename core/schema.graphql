@@ -69,3 +69,51 @@ type Global @entity {
   masterContractsRegistry: Bytes!
   totalUsersCount: BigInt!
 }
+type AddedPermissions @entity(immutable: true) {
+  id: Bytes!
+  role: String! # string
+  resource: String! # string
+  permissionsToAdd: [String!]! # string[]
+  allowed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AddedRoleWithDescription @entity(immutable: true) {
+  id: Bytes!
+  role: String! # string
+  description: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type GrantedRoles @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  rolesToGrant: [String!]! # string[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RemovedPermissions @entity(immutable: true) {
+  id: Bytes!
+  role: String! # string
+  resource: String! # string
+  permissionsToRemove: [String!]! # string[]
+  allowed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RevokedRoles @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  rolesToRevoke: [String!]! # string[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Distributed Lab",
+  "type": "module",
   "description": "",
   "scripts": {
     "install": "npx husky install",

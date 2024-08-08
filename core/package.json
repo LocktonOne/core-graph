@@ -5,6 +5,7 @@
     "compile": "graph codegen && graph build",
     "codegen": "graph codegen",
     "build": "graph build",
+    "type": "module",
     "test": "graph test",
     "create-local": "graph create --node http://localhost:9020/ core",
     "remove-local": "graph remove --node http://localhost:8020/ core",
@@ -20,5 +21,8 @@
     "js-yaml": "^4.1.0",
     "matchstick-as": "0.5.0",
     "node-vault": "^0.10.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.1.0"
   }
 }

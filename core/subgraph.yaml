@@ -2,3 +2,33 @@ specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
+  - kind: ethereum/contract
+    name: ConstantsRegistry
+    network: mainnet
+    source:
+      address: "0x0000000000000000000000000000000000000001"
+      abi: ConstantsRegistry
+      startBlock: 1
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ./src/mappings/ConstantsRegistry.ts
+      entities:
+        - Constant
+      abis:
+        - name: ConstantsRegistry
+          file: ./abis/ConstantsRegistry.json
+      eventHandlers:
+        - event: AddedBytes(string,bytes)
+          handler: onAddedBytes
+        - event: AddedString(string,bytes)
+          handler: onAddedString
+        - event: AddedUint256(string,bytes)
+          handler: onAddedUint256
+        - event: AddedAddress(string,bytes)
+          handler: onAddedAddress
+        - event: AddedBytes32(string,bytes)
+          handler: onAddedBytes32
+        - event: Removed(string)
+          handler: onRemoved
