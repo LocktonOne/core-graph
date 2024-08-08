@@ -28,6 +28,7 @@ function validateConfig(config) {
 
   for (const contractName in config.addresses) {
     if (!contracts.includes(contractName)) {
+      delete config.addresses[contractName];
       throw new Error(`Unknown contract ${contractName}`);
     }
   }
